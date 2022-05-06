@@ -18,10 +18,23 @@ const EditIntern = () => {
     return (
         <div>
             <NavLink to="/">Back to list </NavLink>
-            <Formik
-       initialValues={{ email: '', password: '' }}
+               <Formik
+       initialValues={{ name: '', email: '', internshipStart: '', internshipEnd: ''}}
        validate={values => {
          const errors = {};
+         console.log(id)
+         if (!values.name)
+         {
+           errors.name = <a>Required name</a>
+         }
+         if(values.internshipEnd)
+         {
+            console.log(values.internshipEnd.value)
+         }
+         if(!values.internshipStart)
+         {
+            console.log(values.internshipStart)
+         }
          if (!values.email) {
            errors.email = 'Required';
          } else if (
@@ -49,12 +62,14 @@ const EditIntern = () => {
          /* and other goodies */
        }) => (
          <form onSubmit={handleSubmit}>
+            {errors.name}
            <input
              type="text"
              name="name"
              onChange={handleChange}
              onBlur={handleBlur}
-             value={intern.name}
+             placeholder = {intern.name}
+             value={values.name}
            />
            {errors.email && touched.email && errors.email}
            <input
@@ -62,8 +77,23 @@ const EditIntern = () => {
              name="email"
              onChange={handleChange}
              onBlur={handleBlur}
-             value={intern.email}
+             value={values.email}
+             placeholder = {intern.email}
            />
+           <input
+             type="date"
+             id="start" 
+             name="internshipStart"
+             onChange={handleChange}
+             onBlur={handleBlur}
+            ></input>
+            <input
+             type="date"
+             id="end" 
+             name="internshipEnd"
+             onChange={handleChange}
+             onBlur={handleBlur}
+            ></input>
            {errors.password && touched.password && errors.password}
            <button type="submit" disabled={isSubmitting}>
              Submit
