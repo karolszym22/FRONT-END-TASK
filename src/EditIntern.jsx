@@ -22,7 +22,8 @@ const EditIntern = () => {
                 <input type="text" name="name" value={intern.name}  />              
                 <label>Email</label>
                 <input type="text" name="email" value={intern.email} />
-                
+                <input type="date" id="start" name="trip-start"value="RRRR-MM-DD"min="" max=""></input>
+                <input type="date" id="start" name="trip-start"value="RRRR-MM-DD"min="" max=""></input>
                 <input type="submit" value="Submit" />
             </form>
         </div>
