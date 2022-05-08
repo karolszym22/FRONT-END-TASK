@@ -3,52 +3,59 @@ import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { Formik } from 'formik';
 
+
+
 const EditIntern = () => {
     const { id } = useParams();
     const [intern, setIntern] = useState(0);
     useEffect(() => {
-        const fetchInterns = async () => {
+        const fetchIntern = async () => {
             const response = await fetch(`http://localhost:3001/interns/${id}`);
             const intern = await response.json();
             setIntern(intern)
         }
-        fetchInterns();
+        fetchIntern();
     }, [id]);
+
+
+ 
+    
 
     return (
         <div>
             <NavLink to="/">Back to list </NavLink>
-               <Formik
-       initialValues={{ name: '', email: '', internshipStart: '', internshipEnd: ''}}
+      <Formik
+        validateOnChange={false}
+        validateOnBlur={false}
+       initialValues={{ id: id, name: '', email: '', internshipStart: '', internshipEnd: ''}}
        validate={values => {
          const errors = {};
-         console.log(id)
+         console.log("moje value", values)
+         if(!values.internshipStart)
+         {
+          errors.internshipStart = <a>This date is not correct!</a>
+         }
+         if(!values.internshipEnd)
+         {
+          errors.internshipEnd = <a>This date is not correct</a>
+         }
          if (!values.name)
          {
            errors.name = <a>Required name</a>
          }
-         if(values.internshipEnd)
+         if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) 
          {
-            console.log(values.internshipEnd.value)
+           errors.email = <a>Invalid email address</a>
          }
-         if(!values.internshipStart)
-         {
-            console.log(values.internshipStart)
-         }
-         if (!values.email) {
-           errors.email = 'Required';
-         } else if (
-           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-         ) {
-           errors.email = 'Invalid email address';
-         }
+       
          return errors;
        }}
        onSubmit={(values, { setSubmitting }) => {
          setTimeout(() => {
-           alert(JSON.stringify(values, null, 2));
-           setSubmitting(false);
-         }, 400);
+         const fs = require('fs');
+         
+         }
+         , 400);
        }}
      >
        {({
@@ -59,27 +66,26 @@ const EditIntern = () => {
          handleBlur,
          handleSubmit,
          isSubmitting,
-         /* and other goodies */
        }) => (
          <form onSubmit={handleSubmit}>
-            {errors.name}
-           <input
+           {errors.name}
+           <input 
              type="text"
              name="name"
              onChange={handleChange}
              onBlur={handleBlur}
-             placeholder = {intern.name}
              value={values.name}
            />
-           {errors.email && touched.email && errors.email}
+           {errors.email}
            <input
              type="email"
              name="email"
              onChange={handleChange}
              onBlur={handleBlur}
              value={values.email}
-             placeholder = {intern.email}
+             
            />
+           {errors.internshipStart}
            <input
              type="date"
              id="start" 
@@ -87,6 +93,7 @@ const EditIntern = () => {
              onChange={handleChange}
              onBlur={handleBlur}
             ></input>
+            {errors.internshipEnd}
             <input
              type="date"
              id="end" 
@@ -94,7 +101,6 @@ const EditIntern = () => {
              onChange={handleChange}
              onBlur={handleBlur}
             ></input>
-           {errors.password && touched.password && errors.password}
            <button type="submit" disabled={isSubmitting}>
              Submit
            </button>
@@ -106,3 +112,4 @@ const EditIntern = () => {
 };
 
 export default EditIntern;
+
