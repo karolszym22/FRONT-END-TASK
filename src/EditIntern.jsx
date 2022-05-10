@@ -51,11 +51,12 @@ const EditIntern = () => {
          return errors;
        }}
        onSubmit={(values, { setSubmitting }) => {
-         setTimeout(() => {
-        
-         
-         }
-         , 400);
+        fetch('http://localhost:3002/data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json','Accept':'application/json' },
+          body: JSON.stringify({values}),
+          redirect: 'follow'
+        })
        }}
      >
        {({
