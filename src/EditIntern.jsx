@@ -113,6 +113,7 @@ const EditIntern = () => {
              onChange={handleChange}
              onBlur={handleBlur}
              className='input-data'
+             max={values.internshipEnd} 
             />
              {errors.internshipStart}
              </div>
@@ -125,6 +126,7 @@ const EditIntern = () => {
              onChange={handleChange}
              onBlur={handleBlur}
              className='input-data'
+             min={values.internshipStart}
             />
              {errors.internshipEnd}
              </div>
