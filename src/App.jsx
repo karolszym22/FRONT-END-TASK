@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import "./App.css";
+import "./CSS/style.css"
+import logo from "./Assets/logo.svg"
 import EditIntern from "./EditIntern";
 import InternList from "./InternList";
 import { Routes, Route } from "react-router-dom";
@@ -26,11 +28,20 @@ class App extends Component {
     };
 render() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/interns/:id" exact element={<EditIntern />} />
-        <Route path="/" element={<InternList />} />
-      </Routes>
+    <div className='main-wrapper'>
+      <div className='container'>
+        <header>
+          <i><img  className='logo' src={logo}/></i>
+        </header>
+        <main>
+           <Routes>
+              <Route path="/interns/:id" exact element={<EditIntern />} />
+              <Route path="/" element={<InternList />} />
+           </Routes>
+        </main>
+      
+      
+      </div>
     </div>
   );
 }}

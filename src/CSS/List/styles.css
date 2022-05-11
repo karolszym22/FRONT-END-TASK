@@ -1,0 +1,90 @@
+.container
+{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 80px 80px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    background: #F7F7F7;
+    width: 656px;
+    height: 783px  
+}
+main h1
+{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 47px;
+    margin-bottom: 40px;
+}
+.trainee
+{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 24px;
+        width: 100%;
+        height: 64px;
+        box-sizing: border-box;
+        width: 496px;
+        border: 2px solid transparent;
+}
+.trainee.hover:hover
+{
+    border: 2px solid #222222;
+}
+.trainee.primary
+{
+    background: #EDEDED;
+}    
+
+.trainee .trainee-name
+{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
+.trainee .edit-nav
+{
+    width: 58px;
+    display: flex;
+    justify-content: space-between;
+}
+.edit-nav .edit
+{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+}
+.edit.nav .edit image 
+{
+    padding-right: 10px;
+}
+header
+{
+    width: 100%;
+    max-width: 1440px;
+}
+.logo
+{
+    height: 80px;
+    width: 80px;
+}
