@@ -86,8 +86,8 @@ const EditIntern = () => {
              value={values.name}
              className="input-name"
            />
-           {errors.name}
-           {errors.logo}
+           {errors.name && errors.logo}
+           {}
            </div>
            
            <div className='field-email'>
@@ -100,8 +100,8 @@ const EditIntern = () => {
              value={values.email}
              className = 'input-name'
            />
-            {errors.email}
-            {errors.logo}
+            {errors.email && errors.logo}
+
            </div>
            <div className='data-container'>
              <div className='field-data'>
