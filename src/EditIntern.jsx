@@ -26,7 +26,7 @@ const EditIntern = () => {
     return (
         <div className='secondary'>
             <div className='back-to-list'>
-              <i><img src={BackLogo}></img></i><NavLink  to={`/`}>Back to list</NavLink>
+              <i><img src={BackLogo}></img></i><NavLink className='back-nav' to={`/`}>Back to list</NavLink>
             </div>
             <h1>Edit</h1>
       <Formik
