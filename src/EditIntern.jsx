@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { Formik } from 'formik';
-
-
+import "./CSS/Edit_Media_Queries/styles.css"
+import "./CSS/Edit/styles.css"
+import WarringLogo from "./Assets/warring.svg"
+import BackLogo from './Assets/back.svg'
 
 const EditIntern = () => {
     const { id } = useParams();
@@ -17,13 +19,16 @@ const EditIntern = () => {
         fetchIntern();
     }, [id]);
 
-
+///<NavLink to="/">Back to list </NavLink>
  
     
 
     return (
-        <div>
-            <NavLink to="/">Back to list </NavLink>
+        <div className='secondary'>
+            <div className='back-to-list'>
+              <i><img src={BackLogo}></img></i><NavLink  to={`/`}>Back to list</NavLink>
+            </div>
+            <h1>Edit</h1>
       <Formik
         validateOnChange={false}
         validateOnBlur={false}
@@ -33,19 +38,21 @@ const EditIntern = () => {
          console.log("moje value", values)
          if(!values.internshipStart)
          {
-          errors.internshipStart = <a>This date is not correct!</a>
+          errors.internshipStart = <a className='attention'>This date is not correct!</a>
          }
          if(!values.internshipEnd)
          {
-          errors.internshipEnd = <a>This date is not correct</a>
+          errors.internshipEnd = <a className='attention'>This date is not correct</a>
          }
          if (!values.name)
          {
-           errors.name = <a>Required name</a>
+           errors.name = <a className='attention'>Required name</a>
+           errors.logo = <i className='warring'><img src={WarringLogo} ></img></i>
          }
          if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) 
          {
-           errors.email = <a>Invalid email address</a>
+          errors.email = <a className='attention'>Invalid email address</a>
+          errors.logo = <i className='warring'><img src={WarringLogo} ></img></i>
          }
        
          return errors;
@@ -69,43 +76,64 @@ const EditIntern = () => {
          isSubmitting,
        }) => (
          <form onSubmit={handleSubmit}>
-           {errors.name}
+           <div className='field-name'>
+             <label>Full name*</label>
            <input 
              type="text"
              name="name"
              onChange={handleChange}
              onBlur={handleBlur}
              value={values.name}
+             className="input-name"
            />
-           {errors.email}
+           {errors.name}
+           {errors.logo}
+           </div>
+           
+           <div className='field-email'>
+             <label>Email address*</label>
            <input
              type="email"
              name="email"
              onChange={handleChange}
              onBlur={handleBlur}
              value={values.email}
-             
+             className = 'input-name'
            />
-           {errors.internshipStart}
+            {errors.email}
+            {errors.logo}
+           </div>
+           <div className='data-container'>
+             <div className='field-data'>
+               <label>Intership star</label>
            <input
              type="date"
              id="start" 
              name="internshipStart"
              onChange={handleChange}
              onBlur={handleBlur}
-            ></input>
-            {errors.internshipEnd}
+             className='input-data'
+            />
+             {errors.internshipStart}
+             </div>
+             <div className='field-data'>
+             <label>Intership end</label>
             <input
              type="date"
              id="end" 
              name="internshipEnd"
              onChange={handleChange}
              onBlur={handleBlur}
-            ></input>
-           <button type="submit" disabled={isSubmitting}>
+             className='input-data'
+            />
+             {errors.internshipEnd}
+             </div>
+             </div>
+           <button className='submit-button' type="submit" disabled={isSubmitting}>
              Submit
            </button>
          </form>
+         
        )}
      </Formik>
         </div>

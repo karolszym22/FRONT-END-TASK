@@ -16,8 +16,7 @@ const InternList = () => {
 
     return (
         <main>
-            
-           <h1>Participants</h1>
+         <h1>Participants</h1>
                {interns.map(u => (<div className='trainee'><span className='trainee-name' key={u.id}>{u.name}</span><span className='edit-nav'><img src={logo}></img><NavLink className='edit' to={`/interns/${u.id}`}>Edit</NavLink></span></div> ))}
         </main>
     );

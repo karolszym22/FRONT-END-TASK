@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import "./App.css";
 import "./CSS/style.css"
+import "./CSS/Edit_Media_Queries/styles.css"
 import logo from "./Assets/logo.svg"
 import EditIntern from "./EditIntern";
 import InternList from "./InternList";
+
 import { Routes, Route } from "react-router-dom";
 
 
@@ -31,7 +33,7 @@ render() {
     <div className='main-wrapper'>
       <div className='container'>
         <header>
-          <i><img  className='logo' src={logo}/></i>
+          <i className='header-logo'><img  className='logo' src={logo}/></i>
         </header>
            <Routes>
               <Route path="/interns/:id" exact element={<EditIntern />} />

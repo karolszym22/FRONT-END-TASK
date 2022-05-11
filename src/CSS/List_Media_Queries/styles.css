@@ -16,6 +16,10 @@
      {
          padding: 40px 10px;
      }
+     .header-logo
+     {
+         display: none;
+     }
      main
     {
         padding: 40px 30px 80px;
