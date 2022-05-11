@@ -1,26 +1,26 @@
-const express = require('express'); //Line 1
+import fetch from "node-fetch";
+import express from 'express';
+import bodyParser from "body-parser";
 const app = express(); //Line 2
 const port = process.env.PORT || 3002; //Line 3
-const bodyParser = require('body-parser');
-const cors = require("cors");
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
-var jsonParser = bodyParser.json()
-app.use(cors(corsOptions)) // Use this after the variable declaration
+
+
+let jsonParser = bodyParser.json()
+const interns = [];
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
 
-// create a GET route
-app.get('/express_backend', (req, res) => { //Line 9
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' }); //Line 10
-}); //
-app.get('/http://localhost:3001/interns', (req, res) => { //Line 9
-console.log(req.body);
-}); //
+fetch('http://localhost:3001/interns')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+app.get('/express_backend', (req, res) => { 
+  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' }); 
+}); 
+app.get('/http://localhost:3001/interns', (req, res) => { 
+interns = req.body;
+}); 
 
 app.post('/data',jsonParser, async (req,res) => {
   console.log('Request received from REACT ONE');    

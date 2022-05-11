@@ -54,7 +54,7 @@ const EditIntern = () => {
         fetch('http://localhost:3002/data', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json','Accept':'application/json' },
-          body: JSON.stringify({values}),
+          body: JSON.stringify(values),
           redirect: 'follow'
         })
        }}
