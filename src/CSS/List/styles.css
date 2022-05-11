@@ -20,6 +20,9 @@ main
     width: 656px;
     height: 783px  
 }
+
+
+
 main h1
 {
     font-family: 'Roboto';
@@ -46,11 +49,17 @@ main h1
 {
     border: 2px solid #222222;
 }
-.trainee.primary
-{
+    
+.trainee:nth-child(2) {
     background: #EDEDED;
-}    
-
+  }
+  .trainee:nth-child(4) {
+    background: #EDEDED;
+  }
+  .trainee:nth-child(6) {
+    background: #EDEDED;
+  }
+  
 .trainee .trainee-name
 {
     font-family: 'Roboto';
@@ -73,6 +82,7 @@ main h1
     font-size: 16px;
     line-height: 24px;
     color: #222222;
+    text-decoration: none;
 }
 .edit.nav .edit image 
 {

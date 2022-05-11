@@ -33,12 +33,10 @@ render() {
         <header>
           <i><img  className='logo' src={logo}/></i>
         </header>
-        <main>
            <Routes>
               <Route path="/interns/:id" exact element={<EditIntern />} />
               <Route path="/" element={<InternList />} />
            </Routes>
-        </main>
       
       
       </div>
