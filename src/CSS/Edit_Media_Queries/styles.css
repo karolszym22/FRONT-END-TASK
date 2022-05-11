@@ -1,0 +1,106 @@
+@media (max-width: 1024px) {
+    
+  .attention
+  {
+      width: 100%;
+  }  
+   
+   .secondary
+  {
+      width: 75%;
+
+  }
+  form
+  {
+      width: 100%;
+      min-height: 472px;
+  }
+  .field-name
+  {
+      width: 100%;
+      min-height: 112px;
+  }
+  .field-email
+  {
+    width: 100%;
+    
+  }
+  .data-container
+  {
+      width: 100%;
+     
+      
+  }
+  .field-data
+  {
+      width: 50%;
+      
+  }
+  .back-to-list
+  {
+      right: 0px;
+     
+  }
+
+}
+ @media (max-width: 768px)
+ {
+     
+     .secondary
+     {
+         padding: 40px 20px;
+         height: 800px;
+     }
+     .data-container
+     {
+         flex-direction: column;
+     }
+     .submit-button
+     {
+         width: 60%;
+     }
+     
+     .trainee .trainee-name 
+    {
+     font-size: 15px;
+    }
+    .edit-nav .edit
+    {
+     font-size: 15px;
+    }
+ }
+ @media (max-width: 568px)
+ {
+     .secondary
+    {
+        width: 95%;
+    }
+     .trainee .trainee-name 
+    {
+     font-size: 13px;
+    }
+    .edit-nav .edit
+    {
+     font-size: 13px;
+    }
+ }
+ @media (max-width: 368px)
+ {
+     .secondary
+    {
+        width: 100%;
+    }
+     .trainee .trainee-name 
+    {
+     font-size: 13px;
+     overflow:hidden;
+     display:inline-block;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     width: 80px;
+    }
+    .edit-nav .edit
+    {
+     font-size: 13px;
+    }
+ }
